@@ -115,7 +115,7 @@ public class DataBaseLogics {
 			stmt.executeQuery(query);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			new ErrorDialog("Invalid,Please check and try again");
+			new ErrorDialog("ID not found");
 		}
 	}
 	

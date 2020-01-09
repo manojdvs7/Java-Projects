@@ -30,6 +30,7 @@ public class DeleteDialog extends Dialog {
 	}
 	public void addComponents()
 	{
+		frameDlg.setTitle("Delete");
 		frameDlg.setSize(300,200);
 		frameDlg.setLayout(new FlowLayout());
 		frameDlg.add(lblDelete);

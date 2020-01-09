@@ -130,6 +130,7 @@ public class RegistrationFormGUI extends Frame{
 	{
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			try {
 			stuId=Integer.parseInt(tfId.getText());
 			stuName=tfName.getText();
 			stuPhn=Integer.parseInt(tfPhn.getText());
@@ -138,6 +139,11 @@ public class RegistrationFormGUI extends Frame{
 			stuEmail=tfEmail.getText();
 			stuFname=tfFname.getText();
 			stuAdd=tfAdd.getText();
+			}
+			catch(Exception e1)
+			{
+				new ErrorDialog("Check all fields");
+			}
 			
 			dbLogics.setAttributes(stuId, stuName, stuPhn, stuDept, stuCity, stuEmail, stuFname, stuAdd);
 			dbLogics.insertQuery();
