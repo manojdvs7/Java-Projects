@@ -116,6 +116,7 @@ public class RegistrationFormGUI extends Frame{
 		this.addWindowListener(new WindowClosingAdapter());
 		btnSubmit.addActionListener(new submitBtnActionListener());
 		btnDelete.addActionListener(new deleteBtnActionListener());
+		btnModify.addActionListener(new updateBtnActionListener());
 	}
 	
 	private class WindowClosingAdapter extends WindowAdapter{
@@ -151,6 +152,16 @@ public class RegistrationFormGUI extends Frame{
 		}
 		
 	}
+	
+	private class updateBtnActionListener implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			new UpdateGUI();
+		}
+		
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		new RegistrationFormGUI();

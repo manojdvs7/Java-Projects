@@ -27,6 +27,7 @@ public class ErrorDialog extends Dialog {
 	}
 	public void addComponents()
 	{
+		frameDlg.setTitle("Error");
 		frameDlg.setSize(300,200);
 		frameDlg.setLayout(new FlowLayout());
 		frameDlg.add(errorLbl);

@@ -66,7 +66,7 @@ public class DataBaseLogics {
 	}
 	public void deleteQuery(int id)
 	{
-		query="Delete from RegistrationDetails where stuId="+id;
+		query="Delete from RegistrationDetails where id="+id;
 		try {
 			stmt.executeQuery(query);
 		}
@@ -75,6 +75,50 @@ public class DataBaseLogics {
 			new ErrorDialog("ID Not Found");
 		}
 	}
+	
+	public void updateQuery(int id,String value,int index)
+	{
+		if(index==0)
+		{
+			query = "update RegistrationDetails set name='"+value+"'where id="+id ;
+		}
+		
+		else if(index==1)
+		{
+			int phn=Integer.parseInt(value);
+			query = "update RegistrationDetails set phone='"+phn+"'where id="+id ;
+		}
+		
+		else if(index==2)
+		{
+			query = "update RegistrationDetails set dept='"+value+"'where id="+id ;
+		}
+		
+		else if(index==3)
+		{
+			query = "update RegistrationDetails set city='"+value+"'where id="+id ;
+		}
+		else if(index==4)
+		{
+			query = "update RegistrationDetails set email='"+value+"'where id="+id ;
+		}
+		else if(index==5)
+		{
+			query = "update RegistrationDetails set fname='"+value+"'where id="+id ;
+		}
+		else if(index==6)
+		{
+			query = "update RegistrationDetails set address='"+value+"'where id="+id ;
+		}
+		
+		try {
+			stmt.executeQuery(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			new ErrorDialog("Invalid,Please check and try again");
+		}
+	}
+	
 	public void closeConnection() throws SQLException
 	{
 		con.close(); 
