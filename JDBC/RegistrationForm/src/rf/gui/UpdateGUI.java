@@ -8,6 +8,10 @@ import rf.db.*;
 
 public class UpdateGUI extends Frame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel lblId;
 	private JTextField tfId;
 	private JLabel lblSelect;

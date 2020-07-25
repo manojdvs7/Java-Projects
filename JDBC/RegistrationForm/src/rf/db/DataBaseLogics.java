@@ -11,9 +11,10 @@ public class DataBaseLogics {
 	private long stuId,stuPhn;
 	private String stuName,stuDept,stuCity,stuEmail,stuFname,stuAdd;
 	public String query;
+																		/*Objects for student info and executing sql query */
 	
-	
-	public void setAttributes(long stuId, String stuName, long stuPhn, String stuDept,String stuCity, String stuEmail, String stuFname, String stuAdd) {
+	public void setAttributes(long stuId, String stuName, long stuPhn, String stuDept,
+			String stuCity, String stuEmail, String stuFname, String stuAdd) { /* function to get info */
 		this.stuId = stuId;
 		this.stuPhn = stuPhn;
 		this.stuName = stuName;
@@ -24,7 +25,7 @@ public class DataBaseLogics {
 		this.stuAdd = stuAdd;
 	}
 	
-	public DataBaseLogics()
+	public DataBaseLogics() /*constructor to establish and create conection*/
 	{
 		try{  
 			//step1 load the driver class  
@@ -40,7 +41,7 @@ public class DataBaseLogics {
 			}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void insertQuery()
+	public void insertQuery()/*insert info to db*/
 	{
 		query = "Insert into RegistrationDetails values("
 				+ stuId + "," 
@@ -64,7 +65,7 @@ public class DataBaseLogics {
 			new ErrorDialog("Student Already Exists");
 		}
 	}
-	public void deleteQuery(int id)
+	public void deleteQuery(int id) /*delete info to db*/
 	{
 		query="Delete from RegistrationDetails where id="+id;
 		int rs = 0;
@@ -80,7 +81,7 @@ public class DataBaseLogics {
 			new ErrorDialog("ID not found");
 	}
 	
-	public void updateQuery(int id,String value,int index) throws SQLException
+	public void updateQuery(int id,String value,int index) throws SQLException /*update info to db*/
 	{
 		if(index==0)
 		{
@@ -128,7 +129,7 @@ public class DataBaseLogics {
 			new ErrorDialog("ID not found");
 	}
 	
-	public void closeConnection() throws SQLException
+	public void closeConnection() throws SQLException /*Close connection to db*/
 	{
 		con.close(); 
 	}
