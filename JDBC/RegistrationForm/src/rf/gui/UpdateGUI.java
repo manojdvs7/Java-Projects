@@ -100,7 +100,12 @@ public class UpdateGUI extends Frame{
 			int id = Integer.parseInt(tfId.getText());
 			String value=tfValue.getText();
 			int index=cbSelect.getSelectedIndex();
-			dbLogics.updateQuery(id,value, index);
+			try {
+				dbLogics.updateQuery(id,value, index);
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		
 	}

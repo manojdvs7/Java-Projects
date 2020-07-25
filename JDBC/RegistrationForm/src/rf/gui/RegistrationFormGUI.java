@@ -142,6 +142,7 @@ public class RegistrationFormGUI extends Frame{
 			}
 			catch(Exception e1)
 			{
+				System.out.println(e1);
 				new ErrorDialog("Check all fields");
 			}
 			

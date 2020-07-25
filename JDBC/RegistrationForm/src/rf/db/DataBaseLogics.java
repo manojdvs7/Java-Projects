@@ -56,7 +56,7 @@ public class DataBaseLogics {
 		}
 		catch(SQLIntegrityConstraintViolationException e)
 		{
-			System.out.print("Constraint");
+			new ErrorDialog("Student Already Exists");
 		}
 		catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -67,16 +67,20 @@ public class DataBaseLogics {
 	public void deleteQuery(int id)
 	{
 		query="Delete from RegistrationDetails where id="+id;
-		try {
-			stmt.executeQuery(query);
+		int rs = 0;
+		try
+		{
+			rs =stmt.executeUpdate(query);
 		}
-		catch (SQLException e) {
-			// TODO Auto-generated catch block
-			new ErrorDialog("ID Not Found");
+		catch(SQLException e)
+		{
+			System.out.println(e);
 		}
+		if(rs==0)
+			new ErrorDialog("ID not found");
 	}
 	
-	public void updateQuery(int id,String value,int index)
+	public void updateQuery(int id,String value,int index) throws SQLException
 	{
 		if(index==0)
 		{
@@ -110,13 +114,18 @@ public class DataBaseLogics {
 		{
 			query = "update RegistrationDetails set address='"+value+"'where id="+id ;
 		}
-		
-		try {
-			stmt.executeQuery(query);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			new ErrorDialog("ID not found");
+		int rs = 0;
+		try
+		{
+			rs =stmt.executeUpdate(query);
 		}
+		catch(SQLException e)
+		{
+			System.out.println(e);
+		}
+		System.out.println(rs);
+		if(rs==0)
+			new ErrorDialog("ID not found");
 	}
 	
 	public void closeConnection() throws SQLException
