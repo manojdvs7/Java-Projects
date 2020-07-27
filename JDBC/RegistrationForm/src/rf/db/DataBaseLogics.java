@@ -83,38 +83,8 @@ public class DataBaseLogics {
 	
 	public void updateQuery(int id,String value,int index) throws SQLException /*update info to db*/
 	{
-		if(index==0)
-		{
-			query = "update RegistrationDetails set name='"+value+"'where id="+id ;
-		}
-		
-		else if(index==1)
-		{
-			int phn=Integer.parseInt(value);
-			query = "update RegistrationDetails set phone='"+phn+"'where id="+id ;
-		}
-		
-		else if(index==2)
-		{
-			query = "update RegistrationDetails set dept='"+value+"'where id="+id ;
-		}
-		
-		else if(index==3)
-		{
-			query = "update RegistrationDetails set city='"+value+"'where id="+id ;
-		}
-		else if(index==4)
-		{
-			query = "update RegistrationDetails set email='"+value+"'where id="+id ;
-		}
-		else if(index==5)
-		{
-			query = "update RegistrationDetails set fname='"+value+"'where id="+id ;
-		}
-		else if(index==6)
-		{
-			query = "update RegistrationDetails set address='"+value+"'where id="+id ;
-		}
+		String[] attributes= {"name","phone","dept","city","email","fname","address"};
+		query = "update RegistrationDetails set "+attributes[index]+"='"+value+"'where id="+id ;
 		int rs = 0;
 		try
 		{
@@ -124,7 +94,6 @@ public class DataBaseLogics {
 		{
 			System.out.println(e);
 		}
-		System.out.println(rs);
 		if(rs==0)
 			new ErrorDialog("ID not found");
 	}
