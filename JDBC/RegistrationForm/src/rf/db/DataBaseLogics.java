@@ -11,7 +11,7 @@ public class DataBaseLogics {
 	private long stuId,stuPhn;
 	private String stuName,stuDept,stuCity,stuEmail,stuFname,stuAdd;
 	public String query;
-																		/*Objects for student info and executing sql query */
+	/*Objects for student info and executing sql query */
 	
 	public void setAttributes(long stuId, String stuName, long stuPhn, String stuDept,
 			String stuCity, String stuEmail, String stuFname, String stuAdd) { /* function to get info */
